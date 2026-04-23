@@ -12,6 +12,13 @@ Cypress.Commands.add('cadastrar', (nome, email, password) => {
     cy.get('[data-test="submit-button"]').click();
 })
 
+Cypress.Commands.add('limparFormularioCadastro', () => {
+    cy.get('[data-test="input-name"]').clear();
+    cy.get('[data-test="input-email"]').clear();
+    cy.get('[data-test="input-password"]').clear();
+    cy.get('[data-test="input-confirm-password"]').clear();
+});
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
