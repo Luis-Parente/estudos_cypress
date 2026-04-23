@@ -2,6 +2,7 @@ describe('Página de cadastro', () => {
   it('Deve preencher os campos do formulário incorretamente e exibir mensagens de erro', () => {
       cy.visit('https://adopet-frontend-cypress.vercel.app/');
       cy.get('[data-test="register-button"]').click();
+      
       cy.get('[data-test="submit-button"]').click();
       cy.contains('É necessário informar um endereço de email').should('be.visible');
       cy.contains('Crie uma senha').should('be.visible');

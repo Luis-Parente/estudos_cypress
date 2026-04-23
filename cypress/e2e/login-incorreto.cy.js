@@ -11,23 +11,17 @@ describe('Página de login', () => {
     })
 
     it('Deve preencher o campo de email incorretamente e exibir mensagem de erro', () => {
-        cy.get('[data-test="input-loginEmail"]').type('ana.exemplo.123');
-        cy.get('[data-test="input-loginPassword"]').type('Ana@123');
-        cy.get('[data-test="submit-button"]').click();
+        cy.login('ana.exemplo.123', 'Ana@123');
         cy.contains('Por favor, verifique o email digitado').should('be.visible');
     })
 
     it('Deve preencher o campo de senha incorretamente e exibir mensagem de erro', () => {
-        cy.get('[data-test="input-loginEmail"]').type('ana.exemplo.123@exemplo.com');
-        cy.get('[data-test="input-loginPassword"]').type('ana@123');
-        cy.get('[data-test="submit-button"]').click();
+        cy.login('ana.exemplo.123@exemplo.com', 'ana@123');
         cy.contains('A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres').should('be.visible');
     })
 
     it('Deve preencher os campos de email e senha incorretamente e exibir mensagens de erro', () => {
-        cy.get('[data-test="input-loginEmail"]').type('ana.exemplo.123');
-        cy.get('[data-test="input-loginPassword"]').type('ana@123');
-        cy.get('[data-test="submit-button"]').click();
+        cy.login('ana.exemplo.123', 'ana@123');
         cy.contains('Por favor, verifique o email digitado').should('be.visible');
         cy.contains('A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres').should('be.visible');
     })
